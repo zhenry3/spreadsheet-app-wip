@@ -2,6 +2,7 @@ Upcomming changes:
 - Clicking away to deselect a cell
 - Adding arrow key navigation support
 - Cell formatting
+- Ability to add columns?*
 - Selecting multiple cells?*
 - Import and export as CSV or TSV
 - Cell programming?* (Ex. =B3)
@@ -11,7 +12,7 @@ V0.02: Rows Update
 - Added support for multiple rows
 - Created the add and delete rows buttons
 
-V0.01: Begining
+V0.01: Beginning
 - Added cells and headers
 - Made cells clickable
 - Added placeholder formating and file options
