@@ -2,10 +2,11 @@ Upcomming changes:
 - Clicking away to deselect a cell
 - Adding arrow key navigation support
 - Cell formatting
-- Ability to add columns?*
-- Selecting multiple cells?*
+- Store table data in session storage
+- Ability to add columns*
+- Selecting multiple cells*
 - Import and export as CSV or TSV
-- Cell programming?* (Ex. =B3)
+- Cell programming* (Ex. =B3)
 - Prettier interface
 
 V0.02: Rows Update
