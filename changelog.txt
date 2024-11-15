@@ -1,13 +1,14 @@
 Upcomming changes:
-- Clicking away to deselect a cell
-- Adding arrow key navigation support
 - Cell formatting
-- Store table data in session storage
-- Ability to add columns*
 - Selecting multiple cells*
 - Import and export as CSV or TSV
 - Cell programming* (Ex. =B3)
 - Prettier interface
+
+V0.03: Cells Update
+- Added support for arrow key navigation
+- Made cells deselectable by clicking away
+- Various bug fixes
 
 V0.02: Rows Update
 - Added support for multiple rows
