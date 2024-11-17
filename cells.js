@@ -33,6 +33,7 @@ var Cells = {
 
         Cells.clickedDom = Cells.cellDoms[cellID -1];
         Cells.clickedID = cellID;
+        CellFormatting.loadFormattingSettings();
 
         Cells.click(cellID);
     },
@@ -48,7 +49,8 @@ var Cells = {
     },
 
     clearClicked: function () {
-        if (Cells.clearClicked != null) {
+        console.log(Cells.clickedDom)
+        if (Cells.clickedDom != null) {
             Cells.clickedDom.getElementsByClassName("cell_content")[0].innerHTML = Cells.clickedDom.getElementsByClassName("cell_input")[0].value;
         }
 

@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rudimentary Spreadsheet App</title>
     <script src="cells.js"></script>
     <script src="rows.js"></script>
+    <script src="cell_formatting.js"></script>
+    <script src="utils.js"></script>
+    <script src="ui.js"></script>
 </head>
 <body>
     <div id="body">
         <h1>Rudimentary Spreadsheet App</h1>
         <hr>
-        <table onclick="Cells.clearClicked()">
-            <tr id="cat_headers">
+        <table onclick="Cells.clearClicked()" style="display: none">
+            <tr id="ca_headers">
                 <th>File</th>
                 <th>Format</th>
             </tr>
@@ -25,15 +28,27 @@
                 </td>
                 <td>
                     <p>
-                        <input type="color" id="text_color_in" title="Text color">
-                        <input type="color" id="bg_color_in" value="#ffffff" title="Background color">
-                        <button id="toggle_underline"><u>U</u></button>
-                        <button id="toggle_bold"><b>B</b></button>
-                        <button id="toggle_italics"><i>I</i></button>
+                        <input type="color" id="text_clor_in" title="Text color" onchange="CellFormatting.changeTextColor();">
+                        <input type="color" id="bg_colr_in" value="#ffffff" title="Background color" onchange="CellFormatting.changeBackgroundColor();">
+                        <button id="toggleunderline" onclick="CellFormatting.toggleUnderline();"><u>U</u></button>
+                        <button id="togglebold" onclick="CellFormatting.toggleBold();"><b>B</b></button>
+                        <button id="toggleitalics" onclick="CellFormatting.toggleItalics();"><i>I</i></button>
                     </p>
                 </td>
             </tr>
         </table>
+        <nav>
+            <div id="cat_headers"><button id="file_btn" class="cat_btn" onclick="UI.changeView('file');">File</button><button id="format_btn" class="cat_btn" onclick="UI.changeView('format');">Format</button></div>
+            <div id="file_options" class="cat_options"><button>Import as CSV</button><button>Import as TSV</button><button>Export as CSV</button><button>Export as TSV</button></div>
+            <div id="format_options" class="cat_options">
+                <input type="color" name="text_color_in" id="text_color_in" onchange="CellFormatting.changeTextColor();" value="#000000" title="Text color">
+                <input type="color" name="bg_color_in" id="bg_color_in" onchange="CellFormatting.changeBackgroundColor();" value="#ffffff" title="Background color">
+                <button id="toggle_bold" onclick="CellFormatting.toggleBold();" title="Bold"><b>B</b></button>
+                <button id="toggle_underline" onclick="CellFormatting.toggleUnderline();" title="Underline"><u>U</u></button>
+                <button id="toggle_italics" onclick="CellFormatting.toggleItalics();" title="Italics"><i>I</i></button>
+            </div>
+        </nav>
+        <br>
         <table>
             <tr><th class="table_header"></th><th class="table_header">A</th><th class="table_header">B</th><th class="table_header">C</th><th class="table_header">D</th><th class="table_header">E</th><th class="table_header">F</th><th class="table_header">G</th><th class="table_header">H</th><th class="table_header">I</th><th class="table_header">J</th><th class="table_header">K</th><th class="table_header">L</th><th class="table_header">M</th><th class="table_header">N</th><th class="table_header">O</th><th class="table_header">P</th><th class="table_header">Q</th><th class="table_header">R</th><th class="table_header">S</th><th class="table_header">T</th><th class="table_header">U</th><th class="table_header">V</th><th class="table_header">W</th><th class="table_header">X</th><th class="table_header">Y</th><th class="table_header">Z</th></tr>
             <tr class="row"><th class="table_header">1</th><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td><td class="cell"><span class="cell_content"></span><input type="text" class="cell_input"></td></tr>
@@ -51,7 +66,7 @@
                 <th class="table_header"><button style="width: 100%;" title="Delete row. Min of 1" onclick="Cells.clearClicked(); Rows.deleteRow();">-</button></th>
             </tr>
         </table>
-        <small>v0.03 (11/14/2024) • <a href="changelog.txt" target="_blank">changelog</a> • (c) Zachary Henry, 2024</small>
+        <small>v0.04 (11/16/2024) • <a href="changelog.txt" target="_blank">changelog</a> • (c) Zachary Henry, 2024</small>
     </div>
     <style>
         table, th, td, tr {border-collapse: collapse;}
@@ -59,13 +74,17 @@
         td > input {width: 100px; display: none;}
         th {background-color: lightgray;}
         * {font-family: sans-serif; user-select: none;}
-        .cell_content {color: black; background-color: #ffffff; font-weight: normal; font-style: normal; text-decoration: none;}
-        a {text-decoration: none; color: black;}
+        .cell {background-color: #ffffff;}
+        .cell_content {color: #000000; font-weight: normal; font-style: normal; text-decoration: none;}
+        .cat_btn {text-decoration: none;}
+        .cat_options {display: none;}
+        a {text-decoration: none; color: #000000;}
         a:hover {text-decoration: underline;}
     </style>
     <script>
         Cells.initCells();
         Rows.initRows();    
+        UI.initUI();
     </script>
 </body>
 </html>
