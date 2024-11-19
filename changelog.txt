@@ -1,8 +1,14 @@
 Upcomming changes:
+- Refactor cells.js
 - Selecting multiple cells*
 - Import and export as CSV or TSV
-- Cell programming* (Ex. =B3)
+- Cell programming (Ex. =B3 + 4)
 - Prettier interface
+
+V0.05: Bugfix Update
+- Various bug fixes
+- Descriptive comments (JSDoc and otherwise) added
+- Added selected cell table header for clarity
 
 V0.04: Style Update
 - Cell formatting

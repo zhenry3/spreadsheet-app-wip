@@ -14,29 +14,6 @@
     <div id="body">
         <h1>Rudimentary Spreadsheet App</h1>
         <hr>
-        <table onclick="Cells.clearClicked()" style="display: none">
-            <tr id="ca_headers">
-                <th>File</th>
-                <th>Format</th>
-            </tr>
-            <tr>
-                <td>
-                    <button>Import CSV</button>
-                    <button>Import TSV</button>
-                    <button>Export CSV</button>
-                    <button>Export TSV</button>
-                </td>
-                <td>
-                    <p>
-                        <input type="color" id="text_clor_in" title="Text color" onchange="CellFormatting.changeTextColor();">
-                        <input type="color" id="bg_colr_in" value="#ffffff" title="Background color" onchange="CellFormatting.changeBackgroundColor();">
-                        <button id="toggleunderline" onclick="CellFormatting.toggleUnderline();"><u>U</u></button>
-                        <button id="togglebold" onclick="CellFormatting.toggleBold();"><b>B</b></button>
-                        <button id="toggleitalics" onclick="CellFormatting.toggleItalics();"><i>I</i></button>
-                    </p>
-                </td>
-            </tr>
-        </table>
         <nav>
             <div id="cat_headers"><button id="file_btn" class="cat_btn" onclick="UI.changeView('file');">File</button><button id="format_btn" class="cat_btn" onclick="UI.changeView('format');">Format</button></div>
             <div id="file_options" class="cat_options"><button>Import as CSV</button><button>Import as TSV</button><button>Export as CSV</button><button>Export as TSV</button></div>
@@ -64,6 +41,7 @@
             <tr id="add_above">
                 <th class="table_header"><button style="width: 100%;" title="Add row. Max of 100" onclick="Cells.clearClicked(); Rows.addRow();">+</button></th>
                 <th class="table_header"><button style="width: 100%;" title="Delete row. Min of 1" onclick="Cells.clearClicked(); Rows.deleteRow();">-</button></th>
+                <td class="table_header"><span id="clicked_cell">None</span></td>
             </tr>
         </table>
         <small>v0.04 (11/16/2024) • <a href="changelog.txt" target="_blank">changelog</a> • (c) Zachary Henry, 2024</small>
@@ -72,7 +50,7 @@
         table, th, td, tr {border-collapse: collapse;}
         th, td {border: 1px solid black; width: 100px; height: 15px;}
         td > input {width: 100px; display: none;}
-        th {background-color: lightgray;}
+        .table_header {background-color: lightgray;}
         * {font-family: sans-serif; user-select: none;}
         .cell {background-color: #ffffff;}
         .cell_content {color: #000000; font-weight: normal; font-style: normal; text-decoration: none;}
@@ -80,6 +58,7 @@
         .cat_options {display: none;}
         a {text-decoration: none; color: #000000;}
         a:hover {text-decoration: underline;}
+        #clicked_cell {text-align: center;}
     </style>
     <script>
         Cells.initCells();

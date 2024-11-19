@@ -1,6 +1,13 @@
+/**
+ * Global cell formatting object
+ */
 var CellFormatting = {
-
+    /**
+     * Loads the formatting settings in the header for a given cell ID.
+     * @param {Number} cellID Optional. Cell ID of the target cell. 
+     */
     loadFormattingSettings: function (cellID) {
+        console.log("CELL_FORMATTING.JS: Format settings loaded");
         cellID = cellID ?? Cells.clickedID;
         var dom = Cells.cellDoms[cellID -1].getElementsByClassName("cell_content")[0];
         if (dom.style.color == "") {
@@ -13,19 +20,34 @@ var CellFormatting = {
         document.getElementById("bg_color_in").value = rgbToHex(dom.parentElement.style.backgroundColor);
     },
 
+    /**
+     * Changes the text color for a target cell.
+     * @param {Number} cellID Optional. Cell ID of the target cell. 
+     */
     changeTextColor: function (cellID) {
+        console.log("CELL_FORMATTING.JS: Text color changed");
         cellID = cellID ?? Cells.clickedID;
-        text_color = document.getElementById("text_color_in").value;
+        const text_color = document.getElementById("text_color_in").value;
         Cells.cellDoms[cellID -1].getElementsByClassName("cell_content")[0].style.color = text_color;
     },
 
+    /**
+     * Changes the background color for a target cell.
+     * @param {Number} cellID Optional. Cell ID of the target cell.
+     */
     changeBackgroundColor: function (cellID) {
+        console.log("CELL_FORMATTING.JS: Background color changed");
         cellID = cellID ?? Cells.clickedID;
-        bg_color = document.getElementById("bg_color_in").value;
+        const bg_color = document.getElementById("bg_color_in").value;
         Cells.cellDoms[cellID -1].style.backgroundColor = bg_color;
     },
 
+    /**
+     * Toggles bold on or off for a target cell.
+     * @param {Number} cellID Optional. Cell ID of the target cell. 
+     */
     toggleBold: function (cellID) {
+        console.log("CELL_FORMATTING.JS: Bold toggled");
         cellID = cellID ?? Cells.clickedID;
         var dom = Cells.cellDoms[cellID -1].getElementsByClassName("cell_content")[0];
         if (dom.style.fontWeight == "bold") {
@@ -35,7 +57,12 @@ var CellFormatting = {
         }
     },
 
+    /**
+     * Toggles italics on or off for a target cell.
+     * @param {Number} cellID Optional. Cell ID of the target cell. 
+     */
     toggleItalics: function (cellID) {
+        console.log("CELL_FORMATTING.JS: Italics toggled");
         cellID = cellID ?? Cells.clickedID;
         var dom = Cells.cellDoms[cellID -1].getElementsByClassName("cell_content")[0];
         if (dom.style.fontStyle == "italic") {
@@ -45,7 +72,12 @@ var CellFormatting = {
         }
     },
 
+    /**
+     * Toggles underline on or off for a target cell.
+     * @param {Number} cellID Optional. Cell ID of the target cell. 
+     */
     toggleUnderline: function (cellID) {
+        console.log("CELL_FORMATTING.JS: Underline toggled");
         cellID = cellID ?? Cells.clickedID;
         var dom = Cells.cellDoms[cellID -1].getElementsByClassName("cell_content")[0];
         if (dom.style.textDecoration == "underline") {

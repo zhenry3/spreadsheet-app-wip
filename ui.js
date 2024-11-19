@@ -1,11 +1,21 @@
+/**
+ * Global UI object.
+ */
 var UI = {
+    /**
+     * Current view. Defaults to format.
+     */
     view: "format",
-    formatButton: null,
+    formatButton: null,     // All have to be null at first because this script loads before the HTML finishes doing so.
     fileButton: null,
     formatDom: null,
     fileDom: null,
 
+    /**
+     * Initiates the UI.
+     */
     initUI: function () {
+        console.log("UI.JS:     UI updated");
 
         this.formatButton = document.getElementById("format_btn");
         this.fileButton = document.getElementById("file_btn");
@@ -24,7 +34,12 @@ var UI = {
         }
     },
 
+    /**
+     * Changes the view of the header.
+     * @param {String} view view to change to
+     */
     changeView: function (view) {
+        console.log("UI.JS: View changed to "+view);
         this.view = view;
 
         this.fileButton.style.textDecoration = "none";
